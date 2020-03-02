@@ -220,12 +220,12 @@ for my $fq (sort {$a <=> $b } keys %samples){
 
 
 		##do usearch against ARDB to extract potential ARG reads
-		print BASH "$ublastxdir/bin/usearch -ublast $f1 -db $opt_d -evalue 1e-5 -accel 0.5 -blast6out $uso1 -threads $opt_n -maxaccepts 1\n";
-		print BASH "$ublastxdir/bin/usearch -ublast $f2 -db $opt_d -evalue 1e-5 -accel 0.5 -blast6out $uso2 -threads $opt_n -maxaccepts 1\n\n";
+		print BASH "usearch -ublast $f1 -db $opt_d -evalue 1e-5 -accel 0.5 -blast6out $uso1 -threads $opt_n -maxaccepts 1\n";
+		print BASH "usearch -ublast $f2 -db $opt_d -evalue 1e-5 -accel 0.5 -blast6out $uso2 -threads $opt_n -maxaccepts 1\n\n";
 
 		##do usearch against greengene nr90 database to calculate 16S copies number
-		print BASH "$ublastxdir/bin/usearch -ublast $f1 -db $ggnr85 -evalue $eval1 -accel 0.5 -blast6out $us16s1 -threads $opt_n -strand both  -maxaccepts 1\n";
-		print BASH "$ublastxdir/bin/usearch -ublast $f2 -db $ggnr85 -evalue $eval1 -accel 0.5 -blast6out $us16s2 -threads $opt_n -strand both  -maxaccepts 1\n\n";
+		print BASH "usearch -ublast $f1 -db $ggnr85 -evalue $eval1 -accel 0.5 -blast6out $us16s1 -threads $opt_n -strand both  -maxaccepts 1\n";
+		print BASH "usearch -ublast $f2 -db $ggnr85 -evalue $eval1 -accel 0.5 -blast6out $us16s2 -threads $opt_n -strand both  -maxaccepts 1\n\n";
 
 	}
 
@@ -262,8 +262,8 @@ for my $fq (sort {$a <=> $b } keys %samples){
 
 			}else{
 				print BASH "\n#Search hyper variable region\n";
-				print BASH "$ublastxdir/bin/usearch -ublast $f1 -db  $REFHVR6  -evalue 1e-5 -accel 0.5 -blast6out $us16s1v6 -threads $opt_n -strand both  -maxaccepts 10\n";		
-				print BASH "$ublastxdir/bin/usearch -ublast $f2 -db  $REFHVR6  -evalue 1e-5 -accel 0.5 -blast6out $us16s2v6 -threads $opt_n -strand both  -maxaccepts 10\n";		
+				print BASH "usearch -ublast $f1 -db  $REFHVR6  -evalue 1e-5 -accel 0.5 -blast6out $us16s1v6 -threads $opt_n -strand both  -maxaccepts 10\n";		
+				print BASH "usearch -ublast $f2 -db  $REFHVR6  -evalue 1e-5 -accel 0.5 -blast6out $us16s2v6 -threads $opt_n -strand both  -maxaccepts 10\n";		
 			}
 			##filter out all the target 16S hypervairable reads and merge the two 16S hyper varaible reads files 
 			print BASH "\n#Cut, filter and merge two fasta files 16S hyper varaible region\n";
