@@ -201,3 +201,39 @@ The copyrights of the following tools/databases which could be used in this pipe
 3)     Greengenes: (http://greengenes.lbl.gov/cgi-bin/nph-index.cgi)
 
 Please check the above websites for details of these tools/databases.
+
+Changes for Rackham
+-------------------
+Will run StageOne for ARGSOAPv2 on Rackham and Slurm
+
+## Requirements
+
+1. Miniconda
+2. Snakemake
+3. Usearch installed and callable via `usearch`. Test this by typing `usearch`. If nothing is called type `whereis usearch`to find its path, then add that path to $PATH. Usearch 32-bit is fine, if you are running this on rackham it should work to load it by first typing `module load bioinfo-tools` and then `module load usearch`.
+
+## Usage
+
+### Installation and configurations
+
+```bash
+git clone https://github.com/AroArz/Ublastx_stageone
+ln -s path/to/your/input/fastq input
+```
+Make sure your input fastq files match the pattern `{sample}_1.fq`, else modify at your leisure using `vi Snakefile`.
+
+### Running 
+
+```bash
+snakemake --profile cluster_configs/rackham --jobs 10 --latency-wait 60 --dryrun
+```
+To see that everything is working. Then run it without `--dryrun`.
+
+Edit `cluster_configs/rackham/rackham.yaml`at your liking.
+
+## Error
+Please see
+`slurm_logs`
+`.snakemake/log`
+`ublast logs`
+
