@@ -7,16 +7,23 @@ print(SAMPLES)
 
 
 rule all:
-    input: "example/testout/extracted.fa",
+    input: "output/extracted.fa",
 
 
 rule Stage_one:
     input:
-        Read_Directory="example/inputfqs",
+        Read_Directory="input",
     output:
-        "example/testout/extracted.fa",
+        "output/extracted.fa",
+    threads:
+        cluster_config["Stage_one"]["n"] if "Stage_one" in cluster_config else 8
     shell:
         """
-        ./argoap_pipeline_stageone_version2 -i {input.Read_Directory} -o example/testout -m example/meta-data.txt
+        ./argoap_pipeline_stageone_version2 \
+        -i {input.Read_Directory} \
+        -o output \
+        -m meta-data.txt \
+        -s \
+        -n {threads}
         """
         
