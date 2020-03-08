@@ -19,12 +19,12 @@ for my $ftmp1 (@files){
 		##process the pair of splitted fa 
 		if($ARGV[2] eq "pro"){
 			##search SARG database using usearch 
-		`$ublastxdir/bin/usearch -ublast $ARGV[0]/$ftmp1 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp1 -threads $ARGV[6] -maxaccepts 1`;
-		`$ublastxdir/bin/usearch -ublast $ARGV[0]/$ftmp2 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp2 -threads $ARGV[6] -maxaccepts 1`;
+		`usearch -ublast $ARGV[0]/$ftmp1 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp1 -threads $ARGV[6] -maxaccepts 1`;
+		`usearch -ublast $ARGV[0]/$ftmp2 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp2 -threads $ARGV[6] -maxaccepts 1`;
 		}elsif($ARGV[2] eq "nuc"){
 			##do usearch against greengene nr90 database to calculate 16S copies number
-		`$ublastxdir/bin/usearch -ublast $ARGV[0]/$ftmp1 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp1 -threads $ARGV[6] -strand both  -maxaccepts 1`;
-		`$ublastxdir/bin/usearch -ublast $ARGV[0]/$ftmp2 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp2 -threads $ARGV[6] -strand both  -maxaccepts 1`;
+		`usearch -ublast $ARGV[0]/$ftmp1 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp1 -threads $ARGV[6] -strand both  -maxaccepts 1`;
+		`usearch -ublast $ARGV[0]/$ftmp2 -db $ARGV[1] -evalue $ARGV[3] -accel 0.5 -blast6out $otmp2 -threads $ARGV[6] -strand both  -maxaccepts 1`;
 		}
 
 	}
