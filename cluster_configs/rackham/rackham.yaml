@@ -10,5 +10,5 @@ __default__:
 
 Stage_one:
         n: 8
-        time: "00:10:00"
+        time: "12:00:00"
 
