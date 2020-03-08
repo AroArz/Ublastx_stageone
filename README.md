@@ -202,7 +202,7 @@ The copyrights of the following tools/databases which could be used in this pipe
 
 Please check the above websites for details of these tools/databases.
 
-Changes for Rackham
+Changes for Rackham /Aron
 -------------------
 Will run StageOne for ARGSOAPv2 on Rackham and Slurm
 
@@ -232,8 +232,8 @@ To see that everything is working. Then run it without `--dryrun`.
 Edit `cluster_configs/rackham/rackham.yaml`at your liking.
 
 ## Error
-Please see
-`slurm_logs`
-`.snakemake/log`
-`ublast logs`
+Please see \
+`slurm_logs`\
+`.snakemake/log`\
+`ublast logs`\
 
